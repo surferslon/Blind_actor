@@ -27,7 +27,7 @@ class TestSearchView(TestCase):
         )
         response = self.client.get(f'{url}{params_string}')
         self.assertEqual(response.json()[0]['char_field'], char_field_value)
-        self.assertEqual(response.json()[0]['id'], 1)
+        self.assertEqual(int(response.json()[0]['id']), 1)
 
 
 class TestCreateView(TestCase):
