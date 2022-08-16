@@ -1,55 +1,55 @@
-### Описание
-Проект содержит 2 демонстрационных приложения и приложение auto_api для реализации API. В миграции добавлены дата-миграции с данными для демонстрации.
+### Description
+The project contains 2 demo applications and an auto_api application to implement the API. Added data migrations to migrations with demo data.
 
-### Установка
+### Installation
 - git clone https://github.com/surferslon/rp_test.git
 - python3 -m venv rp_test_env
 - . ./rp_test_env/bin/activate
-- cd rp_test
+-cd rp_test
 - pip install -r requirements
 - python manage.py migrate
 - python manage.py runserver
 
-### Список всех моделей
-- Метод: get 
-- Адрес: api/rest/v1/auto_api/list
+### List of all models
+- Method: get
+- Address: api/rest/v1/auto_api/list
 
-### Поиск в модели
-- Метод: get
-- Адрес: api/rest/v1/auto_api/search/<имя пирложения>/<имя модели>
-- Параметры
-    - search={<поле_модели>: <строка_поиска>}  
-    - order_by=<поле_модели>
-    - limit=<число>
+### Search in the model
+- Method: get
+- Address: api/rest/v1/auto_api/search/<application name>/<model name>
+- Options
+    - search={<model_field>: <search_string>}
+    - order_by=<model_field>
+    -limit=<number>
 
-### Создание объекта
-- Метод: post
-- Адрес: api/rest/v1/create
-- Параметры: 
+### Create an object
+- Method: post
+- Address: api/rest/v1/create
+- Options:
  ```javascript
   {
-    "app_name": <имя_приложения>,
-    "model_name>": <имя_модели>,
-    "fields_data": <данные полей вида {"Имя_поля": "Значение_поля", ...}>
+    "app_name": <app_name>,
+    "model_name>": <model_name>,
+    "fields_data": <field data of the form {"Field_name": "Field_value", ...}>
   }
   ```
  
- ### Обновление объекта
- - Метод: put 
- - Адрес: api/rest1/v1/create
- - Параметры:
+ ### Update object
+ - Method: put
+ - Address: api/rest1/v1/create
+ - Options:
  ```javascript
   {
-    "app_name": <имя_приложения>,
-    "model_name>": <имя_модели>,
-    "pk": <ключ>,
-    "fields_data": <данные полей вида {"имя_поля": "значение_поля", ...}>
+    "app_name": <app_name>,
+    "model_name>": <model_name>,
+    "pk": <key>,
+    "fields_data": <field data like {"field_name": "field_value", ...}>
   }
  ```
  
- ### Удаление объекта
- - Метод: delete 
- - Адрес: api/rest/v1/delete/<имя пирложения>/<имя модели>/<ключ_объекта>'
+ ### Deleting an object
+ - Method: delete
+ - Address: api/rest/v1/delete/<application name>/<model name>/<object_key>'
  
- ### Тестирование
+ ### Testing
  python manage.py test auto_api
